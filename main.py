@@ -31,7 +31,7 @@ cap = cv2.VideoCapture('/home/kali/Documents/Stage/Sources/video4.mp4') # Video
 frameRate = 5
 
 # Parameters
-names = ['0', '1', '2', '3', '4', '5', '6', '7']
+names = ['0', '1', '2', '3', '4', '5']
 angleRange = 15
 
 
@@ -40,8 +40,8 @@ framePrecision = 130
 
 # Detection & tracking
 mp_face_mesh = mp.solutions.face_mesh
-face_mesh = mp_face_mesh.FaceMesh(min_detection_confidence=0.6,
-                                    min_tracking_confidence=0.6)
+face_mesh1 = [mp_face_mesh.FaceMesh(min_detection_confidence=0.6,
+                                    min_tracking_confidence=0.6) for x in names]
 
 face_mesh2 = [mp_face_mesh.FaceMesh(min_detection_confidence=0.6,
                                     min_tracking_confidence=0.6) for x in names]
@@ -81,7 +81,7 @@ while cap.isOpened():
             cutf = frame[y1:y2, x1:x2]
 
         cutf = cv2.cvtColor(cutf, cv2.COLOR_BGR2RGB)
-        results = face_mesh.process(cutf)
+        results = face_mesh1[pNb].process(cutf)
 
         if results.multi_face_landmarks:
 
