@@ -18,9 +18,7 @@ def click_event(event, x, y, flags, params):
 
 '''
 1. Choose between importing a video or using a webcam in live
-2. Set the parameters (angles & names of each persons, framePrecision
-    & detection/tracking confidence)
-3. Execute main.py with your terminal
+2. Execute main.py with your terminal
 '''
 
 
